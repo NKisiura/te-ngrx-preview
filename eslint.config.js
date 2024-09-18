@@ -68,6 +68,7 @@ module.exports = tseslint.config(
       "@angular-eslint/prefer-on-push-component-change-detection": ["error"],
       "@angular-eslint/prefer-standalone": ["error"],
       "@angular-eslint/consistent-component-styles": ["error"],
+      "@angular-eslint/relative-url-prefix": ["error"],
       "@angular-eslint/component-class-suffix": ["error"],
       "@angular-eslint/component-max-inline-declarations": ["error"],
       "@angular-eslint/no-duplicates-in-metadata-arrays": ["error"],
