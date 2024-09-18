@@ -12,7 +12,7 @@ module.exports = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.stylistic,
       ...angular.configs.tsRecommended,
-      eslintConfigPrettier
+      eslintConfigPrettier,
     ],
     processor: angular.processInlineTemplates,
     rules: {
@@ -20,25 +20,25 @@ module.exports = tseslint.config(
       "@typescript-eslint/naming-convention": [
         "error",
         {
-          "selector": "interface",
-          "format": ["PascalCase"],
-          "custom": {
-            "regex": "^(?!.*Interface$)",
-            "match": true
+          selector: "interface",
+          format: ["PascalCase"],
+          custom: {
+            regex: "^(?!.*Interface$)",
+            match: true,
           },
-          "leadingUnderscore": "forbid",
-          "trailingUnderscore": "forbid"
+          leadingUnderscore: "forbid",
+          trailingUnderscore: "forbid",
         },
         {
-          "selector": "enum",
-          "format": ["PascalCase"],
-          "custom": {
-            "regex": "^(?!.*Enum$)",
-            "match": true
+          selector: "enum",
+          format: ["PascalCase"],
+          custom: {
+            regex: "^(?!.*Enum$)",
+            match: true,
           },
-          "leadingUnderscore": "forbid",
-          "trailingUnderscore": "forbid"
-        }
+          leadingUnderscore: "forbid",
+          trailingUnderscore: "forbid",
+        },
       ],
       // ------------ TYPESCRIPT RULES END ------------
 
@@ -75,7 +75,7 @@ module.exports = tseslint.config(
       "@angular-eslint/no-input-rename": ["error"],
       "@angular-eslint/no-output-rename": ["error"],
       "@angular-eslint/use-pipe-transform-interface": ["error"],
-      "@angular-eslint/no-pipe-impure": ["error"]
+      "@angular-eslint/no-pipe-impure": ["error"],
       // ------------ ANGULAR RULES END ------------
     },
   },
@@ -84,21 +84,21 @@ module.exports = tseslint.config(
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
-      eslintConfigPrettier
+      eslintConfigPrettier,
     ],
     rules: {
       // ------------ ANGULAR TEMPLATE RULES ------------
       "@angular-eslint/template/conditional-complexity": [
         "error",
         {
-          "maxComplexity": 3
-        }
+          maxComplexity: 3,
+        },
       ],
       "@angular-eslint/template/cyclomatic-complexity": [
         "error",
         {
-          "maxComplexity": 5
-        }
+          maxComplexity: 5,
+        },
       ],
       "@angular-eslint/template/use-track-by-function": ["error"],
       "@angular-eslint/template/no-duplicate-attributes": ["error"],
@@ -114,5 +114,5 @@ module.exports = tseslint.config(
       "@angular-eslint/template/no-inline-styles": ["error"],
       // ------------ ANGULAR TEMPLATE RULES END ------------
     },
-  }
+  },
 );
