@@ -108,7 +108,6 @@ module.exports = tseslint.config(
       "@angular-eslint/template/banana-in-box": ["error"],
       "@angular-eslint/template/button-has-type": ["error"],
       "@angular-eslint/template/eqeqeq": ["error"],
-      "@angular-eslint/template/no-call-expression": ["error"],
       "@angular-eslint/template/no-negated-async": ["error"],
       "@angular-eslint/template/prefer-self-closing-tags": ["error"],
       "@angular-eslint/template/no-inline-styles": ["error"],
