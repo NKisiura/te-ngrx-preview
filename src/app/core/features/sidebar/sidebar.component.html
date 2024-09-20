@@ -1,0 +1,29 @@
+<div class="flex flex-col">
+  <div
+    class="sticky top-0 z-10 flex items-center justify-between bg-app-bg p-4"
+  >
+    <span class="text-lg">Menu</span>
+    <button
+      type="button"
+      mat-icon-button
+      aria-label="Close"
+      (click)="close.emit()"
+    >
+      <mat-icon fontIcon="close" />
+    </button>
+  </div>
+  <div class="flex flex-col gap-2 px-4 pb-4">
+    @for (menuLink of menuLinks; track menuLink.route) {
+      <a
+        mat-button
+        class="menu-link"
+        [routerLink]="[menuLink.route]"
+        [routerLinkActive]="'menu-link-active'"
+        (click)="close.emit()"
+      >
+        <mat-icon [fontIcon]="menuLink.icon" />
+        {{ menuLink.label }}
+      </a>
+    }
+  </div>
+</div>

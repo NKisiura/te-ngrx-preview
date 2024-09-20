@@ -1,0 +1,9 @@
+.sidebar-trigger {
+  --mdc-fab-small-container-shape: 0 12px 12px 0;
+
+  position: fixed;
+  top: 80px;
+  left: 0;
+
+  z-index: 10;
+}

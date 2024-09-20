@@ -1,1 +1,32 @@
-<router-outlet />
+<div class="flex min-h-screen flex-col">
+  <div class="fixed left-0 right-0 top-0 z-10">
+    <app-header />
+  </div>
+  <div class="mt-header-height flex flex-grow flex-col">
+    <mat-sidenav-container class="flex-grow">
+      <mat-sidenav
+        #sidenav
+        [mode]="'over'"
+        [fixedInViewport]="true"
+        [fixedTopGap]="64"
+        (openedStart)="toggleSidenav()"
+        (closed)="toggleSidenav()"
+      >
+        <app-sidebar (close)="sidenav.close()" />
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="p-4">
+          <router-outlet />
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    @if (!isSidenavOpened()) {
+      <div class="sidebar-trigger">
+        <button type="button" mat-mini-fab (click)="sidenav.open()">
+          <mat-icon fontIcon="menu" />
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.menu-link {
+  justify-content: flex-start;
+}
+
+.menu-link-active {
+  box-shadow: var(--mdc-protected-button-container-elevation-shadow, var(--mat-app-level1));
+}
