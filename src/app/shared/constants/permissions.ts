@@ -1,3 +1,3 @@
-export enum OperationsBoardPermission {
+export enum OperationsBoardPermissions {
   READ = "read.OPERATIONS_BOARD",
 }
