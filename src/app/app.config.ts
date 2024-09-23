@@ -7,13 +7,14 @@ import { provideRouter } from "@angular/router";
 
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { retryInterceptor } from "@core/interceptors";
+import { delayInterceptor, retryInterceptor } from "@core/interceptors";
 import { routes } from "./app.routes";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([retryInterceptor])),
+    provideHttpClient(withInterceptors([retryInterceptor, delayInterceptor])),
     provideRouter(routes),
   ],
 };
