@@ -3,12 +3,13 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 import { MatAnchor, MatButton, MatIconButton } from "@angular/material/button";
 import { MatIcon } from "@angular/material/icon";
 import { APP_ROUTES, OPERATIONS_BOARD_PERMISSIONS } from "@shared/constants";
+import { Permission } from "@shared/types/general";
 
 interface MenuLink {
   readonly route: APP_ROUTES;
   readonly label: string;
   readonly icon: string;
-  readonly permissions?: string[];
+  readonly permissions?: Permission[];
   // readonly permissionsCheckMode?: PermissionsCheckMode;
 }
 
