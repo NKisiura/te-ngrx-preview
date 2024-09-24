@@ -1,22 +1,23 @@
-import { ChangeDetectionStrategy, Component, output } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  output,
+} from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { MatAnchor, MatButton, MatIconButton } from "@angular/material/button";
 import { MatIcon } from "@angular/material/icon";
 import { APP_ROUTES, OPERATIONS_BOARD_PERMISSIONS } from "@shared/constants";
-import { Permission } from "@shared/types/general";
+import { Permission, PermissionsCheckMode } from "@shared/types/general";
+import { PermissionValidatorService } from "@shared/lib/permission-validator";
 
 interface MenuLink {
   readonly route: APP_ROUTES;
   readonly label: string;
   readonly icon: string;
   readonly permissions?: Permission[];
-  // readonly permissionsCheckMode?: PermissionsCheckMode;
+  readonly permissionsCheckMode?: PermissionsCheckMode;
 }
-
-// enum PermissionsCheckMode {
-//   REQUIRED_ALL,
-//   REQUIRED_ONE_OF,
-// }
 
 @Component({
   selector: "app-sidebar",
@@ -34,6 +35,8 @@ interface MenuLink {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
+  private readonly permissionValidator = inject(PermissionValidatorService);
+
   public readonly APP_ROUTES = APP_ROUTES;
   public readonly close = output<void>();
   public readonly menuLinks = this.defineMenuLinks();
@@ -53,10 +56,20 @@ export class SidebarComponent {
       },
     ];
 
-    return menuLinks.filter(this.isMenuLinkAllowed);
+    return menuLinks.filter(this.isMenuLinkAllowed.bind(this));
   }
 
-  private isMenuLinkAllowed(): boolean {
-    return true;
+  private isMenuLinkAllowed({
+    permissions,
+    permissionsCheckMode,
+  }: MenuLink): boolean {
+    if (!permissions?.length) {
+      return true;
+    }
+
+    return this.permissionValidator.hasPermission(
+      permissions,
+      permissionsCheckMode || PermissionsCheckMode.REQUIRED_ALL,
+    );
   }
 }
