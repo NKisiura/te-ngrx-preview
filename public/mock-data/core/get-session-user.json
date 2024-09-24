@@ -1,0 +1,10 @@
+{
+  "userId": 61739,
+  "userFirstName": "John",
+  "userLastName": "Doe",
+  "email": "john.doe@gmail.com",
+  "userType": "developer",
+  "timeZone": "Europe/Kiev",
+  "isAdmin": true
+}
+
